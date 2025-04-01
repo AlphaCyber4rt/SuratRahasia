@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surat Nasehat Ayah</title>
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Comic Neue', cursive;
+            background: linear-gradient(135deg, #ffd7b5, #ffe6cc);
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Container Utama */
+        .amplop {
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            width: 95%;
+            max-width: 500px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Responsive Typography */
+        .judul {
+            color: #d32f2f;
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .instruksi {
+            text-align: center;
+            color: #555;
+            font-size: 1rem;
+            margin-bottom: 25px;
+        }
+
+        /* Step Container */
+        .step {
+            display: none;
+            opacity: 0;
+            transform: translateX(50px);
+            padding: 20px;
+            border-radius: 15px;
+            background: #fff5e6;
+            transition: all 0.5s ease;
+        }
+
+        .step.active {
+            display: block;
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Animasi Hati */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .heart-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .heart-animation {
+            font-size: 3rem;
+            color: #ff6d00;
+            animation: pulse 1.5s infinite;
+            cursor: pointer;
+        }
+
+        /* Tombol Responsif */
+        .tombol {
+            background: #d32f2f;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .tombol:hover {
+            transform: scale(1.05);
+        }
+
+        /* Media Queries untuk Mobile */
+        @media (max-width: 480px) {
+            .judul { font-size: 1.5rem; }
+            .heart-animation { font-size: 2.5rem; }
+            .tombol { padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="amplop">
+        <h1 class="judul">📜 SURAT NASEHAT AYAH 📜</h1>
+        <p class="instruksi">Klik untuk membuka kebijakan ayah</p>
+        
+        <!-- Langkah 1 -->
+        <div class="step active" id="step1" onclick="lanjut(2)">
+            <p style="font-size:1.1em">📅 Tertanggal: <em>Selamanya</em></p>
+            <div class="heart-container">
+                <div class="heart-animation" onclick="event.stopPropagation(); animateHeart()">❤️</div>
+            </div>
+            <button class="tombol">Buka Surat 📜</button>
+        </div>
+
+        <!-- Langkah 2 -->
+        <div class="step" id="step2" onclick="lanjut(3)">
+            <h3>🎓 PASAL 1: BELAJAR SERU</h3>
+            <p style="font-size:0.9em">
+                "Rajin-rajin belajar nak, tapi..."<br>
+                ✅ Kalau ngantuk boleh tidur<br>
+                ✅ Nilai B boleh asal usaha maksimal<br>
+                ✅ Yang penting paham, bukan hafal<br>
+                <small>(Tapi matematika jangan dikurangi ayah!)</small>
+            </p>
+            <div class="heart-container">
+                <div class="heart-animation" onclick="event.stopPropagation(); animateHeart()">❤️</div>
+            </div>
+            <button class="tombol">Lanjutkan 📖</button>
+        </div>
+
+        <!-- Langkah 3 -->
+        <div class="step" id="step3" onclick="lanjut(4)">
+            <h3>💪 PASAL 2: TANGGUNG JAWAB</h3>
+            <p style="font-size:0.9em">
+                "Jadilah pemberani tapi..."<br>
+                🛑 Kalau hujan deras, lindungi rambut dulu<br>
+                🛑 Berani bilang 'tidak' pada yang salah<br>
+                🛑 Berani minta maaf kalau salah<br>
+                <em>"Keberanian terbesar adalah jujur pada diri sendiri"</em>
+            </p>
+            <div class="heart-container">
+                <div class="heart-animation" onclick="event.stopPropagation(); animateHeart()">❤️</div>
+            </div>
+            <button class="tombol">Terakhir 🌈</button>
+        </div>
+
+        <!-- Langkah 4 -->
+        <div class="step" id="step4">
+            <h3 style="color:#d32f2f">🌍 PASAL 3: HIDUP BAIK</h3>
+            <div style="text-align:left;padding:10px;font-size:0.9em">
+                <p>🔹 Sayangi lingkungan: <br>
+                <small>"Tapi sampah cucian boleh ditaruh di kamar ayah"</small></p>
+                
+                <p>🔹 Jaga kesehatan: <br>
+                <small>"Kalau begadang wajib minum susu + foto bukti"</small></p>
+                
+                <p>🔹 Hormati semua orang: <br>
+                <small>"Kecuali yang ganggu kamu, ayah yang urus!"</small></p>
+            </div>
+            
+            <div class="heart-container">
+                <div class="heart-animation" onclick="animateHeart()">❤️</div>
+            </div>
+            
+            <div style="border-top:2px dashed #ff6d00;padding:15px">
+                <p style="font-size:0.9em">❤️ Intinya:<br>
+                Ayah ingin kamu tumbuh jadi:<br>
+                <span style="font-size:1.2em">💡 CERDAS • 🤝 BERAKHLAK • 💪 TANGGUH</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 4;
+
+        function lanjut(nomor) {
+            if(nomor > totalSteps) return;
+            
+            // Sembunyikan step sebelumnya
+            document.querySelectorAll('.step').forEach(step => {
+                step.style.display = 'none';
+                step.classList.remove('active');
+            });
+            
+            // Tampilkan step baru
+            const target = document.getElementById('step' + nomor);
+            setTimeout(() => {
+                target.style.display = 'block';
+                setTimeout(() => target.classList.add('active'), 50);
+            }, 300);
+            
+            currentStep = nomor;
+        }
+
+        function animateHeart() {
+            const heart = document.createElement('div');
+            heart.textContent = '❤️';
+            heart.style.cssText = `
+                position: fixed;
+                font-size: 2rem;
+                left: ${Math.random() * 100}vw;
+                top: ${Math.random() * 100}vh;
+                animation: float 2s linear;
+                color: #ff6d00;
+                opacity: 0.7;
+            `;
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 2000);
+        }
+    </script>
+</body>
+</html>
